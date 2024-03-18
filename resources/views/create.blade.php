@@ -5,17 +5,18 @@
 @endsection
 
 @section('content')
-	<form action="" method="post" class="mt-4 p-4">
+	<form action="/store" method="post" class="mt-4 p-4">
+		@csrf
 		<div class="form-group m-3">
 			<label for="name">Todo Name</label>
-			<input type="text" class="form-control" name="name">
+			<input type="text" class="form-control" name="name" required>
 		</div>
 		<div class="form-group m-3">
 			<label for="description">Description</label>
-			<input type="text" class="form-control" name="description">
+			<input type="text" class="form-control" name="description" required>
 		</div>
 		<div class="form-group m-3">
-			<input type="submit" value="submit" class="btn btn-primary float-end">
+			<button type="submit" class="btn btn-primary float-end">Submit</button>
 		</div>
 	</form>
 @endsection
