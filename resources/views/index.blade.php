@@ -11,7 +11,7 @@
 					<li class="list-group-item"><a href="">No Todo Available</a></li>
 				@else
 					@foreach ($todos as $todo)
-						<li class="list-group-item"><a href="{{ 'localhost:8000/details/' . $todo->id }}">{{ $todo->name }}</a></li>
+						<li class="list-group-item"><a href="{{ route('details', $todo->id) }}">{{ $todo->name }}</a></li>
 					@endforeach
 				@endif
 			</ul>
