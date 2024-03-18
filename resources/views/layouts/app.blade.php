@@ -12,15 +12,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-light bg-light">
-		<div class="container">
-			<a href="/" class="link-underline link-underline-opacity-0"><span class="navbar-brand mb-0 h1">Todo</span></a>
-			<a href="/create"><span class="btn btn-primary">Create Todo</span></a>
-		</div>
-	</nav>
-	<div class="container">
-		@yield('content')
-	</div>
+	@yield('content')
 
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 </body>
