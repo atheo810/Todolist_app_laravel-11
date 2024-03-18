@@ -7,11 +7,13 @@
 	<div class="row mt-3">
 		<div class="col-12 align-self-center">
 			<ul class="list-group">
-				<li class="list-group-item"><a href="details">Dummy todo here</a></li>
-				<li class="list-group-item"><a href="details">Dummy todo here</a></li>
-				<li class="list-group-item"><a href="details">Dummy todo here</a></li>
-				<li class="list-group-item"><a href="details">Dummy todo here</a></li>
-				<li class="list-group-item"><a href="details">Dummy todo here</a></li>
+				@if ($todos->count() === 0)
+					<li class="list-group-item"><a href="">No Todo Available</a></li>
+				@else
+					@foreach ($todos as $todo)
+						<li class="list-group-item"><a href="{{ 'localhost:8000/details/' . $todo->id }}">{{ $todo->name }}</a></li>
+					@endforeach
+				@endif
 			</ul>
 		</div>
 	</div>
