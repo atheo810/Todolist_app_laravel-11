@@ -9,11 +9,11 @@
 		@csrf
 		<div class="form-group m-3">
 			<label for="name">Todo Name</label>
-			<input type="text" class="form-control" name="name" required>
+			<input type="text" class="form-control" name="name" required autocomplete="off">
 		</div>
 		<div class="form-group m-3">
 			<label for="description">Description</label>
-			<input type="text" class="form-control" name="description" required>
+			<input type="text" class="form-control" name="description" required autocomplete="off">
 		</div>
 		<div class="form-group m-3">
 			<button type="submit" class="btn btn-primary float-end">Submit</button>
