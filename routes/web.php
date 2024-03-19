@@ -20,3 +20,4 @@ Route::middleware([LoginMiddleware::class])->group(function () {
 
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::post('/register', [UserController::class, 'registerPost'])->name('register.post');
