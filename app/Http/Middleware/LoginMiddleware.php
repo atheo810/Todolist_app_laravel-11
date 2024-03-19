@@ -16,8 +16,8 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::attempt()) {
-            return redirect()->route('login');
+        if (Auth::user()) {
+            return redirect()->route('index');
         }
         return $next($request);
     }
