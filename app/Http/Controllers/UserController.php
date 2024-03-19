@@ -44,4 +44,11 @@ class UserController extends Controller
         $request->session()->regenerate();
         return redirect()->route('index');
     }
+    public function logoutUser(Request $request)
+    {
+        $data = Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
+    }
 }
