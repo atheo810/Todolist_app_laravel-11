@@ -17,6 +17,7 @@ Route::middleware([TodoListMiddleware::class])->group(function () {
     Route::get('/edit/{id}', [TodoController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [TodoController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [TodoController::class, 'delete'])->name('delete');
+    Route::post('/logout', [UserController::class, 'logoutUser'])->name('logout');
 });
 
 Route::middleware([LoginMiddleware::class])->group(function () {
