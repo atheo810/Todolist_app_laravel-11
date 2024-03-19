@@ -4,11 +4,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\LoginMiddleware;
+use App\Http\Middleware\TodoListMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware([LoginMiddleware::class])->group(function () {
+Route::middleware([TodoListMiddleware::class])->group(function () {
     Route::get('/', [TodoController::class, 'index'])->name('index');
     Route::get('/create', [TodoController::class, 'create'])->name('create');
     Route::post('/store', [TodoController::class, 'store'])->name('store');
@@ -18,6 +19,9 @@ Route::middleware([LoginMiddleware::class])->group(function () {
     Route::delete('/delete/{id}', [TodoController::class, 'delete'])->name('delete');
 });
 
-Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::post('/register', [UserController::class, 'registerPost'])->name('register.post');
+Route::middleware([LoginMiddleware::class])->group(function () {
+    Route::get('/login', [UserController::class, 'login'])->name('login');
+    Route::get('/register', [UserController::class, 'register'])->name('register');
+    Route::post('/login', [UserController::class, 'loginPost'])->name('login.post');
+    Route::post('/register', [UserController::class, 'registerPost'])->name('register.post');
+});
